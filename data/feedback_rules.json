@@ -1,0 +1,50 @@
+{
+  "rating_tiers": [
+    {
+      "min_score": 7,
+      "label": "Excellent",
+      "feedback": [
+        "Outstanding. This password is highly resistant to cracking. Keep using this strategy."
+      ]
+    },
+    {
+      "min_score": 5,
+      "label": "Strong",
+      "feedback": [
+        "Good job. To make this even stronger, avoid recognizable words or patterns."
+      ]
+    },
+    {
+      "min_score": 3,
+      "label": "Moderate",
+      "feedback": [
+        "You're on the right path, but this could be guessed with modern tools. Improve complexity."
+      ]
+    },
+    {
+      "min_score": 0,
+      "label": "Weak",
+      "feedback": [
+        "This password is highly vulnerable. Start with at least 12 characters and mix it up."
+      ]
+    }
+  ],
+  "pattern_triggers": {
+    "date": {
+      "regex": "\\b(19|20)\\d{2}\\b|\\b\\d{2}[/-]\\d{2}[/-]\\d{2,4}\\b",
+      "feedback": "This looks like a date. Avoid personal info—attackers love that stuff."
+    },
+    "sequential": {
+      "regex": "1234|abcd|qwerty|asdf|zxcv",
+      "feedback": "Avoid keyboard patterns or common sequences like '1234' or 'qwerty'."
+    },
+    "breach_example": {
+      "matches": ["password123", "letmein", "123456", "admin", "passw0rd"],
+      "feedback": "This password has appeared in multiple data breaches. Never reuse known phrases."
+    },
+    "low_entropy": {
+      "trigger": "entropy < 3",
+      "feedback": "Length helps, but predictability kills. Add randomness, not repetition."
+    }
+  }
+}
